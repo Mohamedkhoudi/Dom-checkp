@@ -58,13 +58,20 @@ function m(event) {
     var totaltag = document.getElementById("total");
     // console.log(totaltag)
     var total = Number(totaltag.innerHTML);
+    const btnPlus = trcheckbox.querySelector(".plus")
+    // console.log(btnPlus)
     if (checkbox.checked === true) {
         total +=  price
+        totaltag.innerHTML = total
+        btnPlus.setAttribute("disabled",true)
     }
     else{
       total -= price
+      totaltag.innerHTML = total
+      btnPlus.removeAttribute("disabled")
     }
-    totaltag.innerHTML = total
+    
+    
 }
 function D(event){
 const deletebtn = event.target
@@ -72,8 +79,5 @@ const deletebtn = event.target
 var divtr = deletebtn.parentElement.parentElement.parentElement.parentElement
 // console.log(divtr)
 divtr.remove()
-
-
-
 
 }
